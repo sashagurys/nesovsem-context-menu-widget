@@ -1,19 +1,19 @@
 // конструктор виджета
 function ContextMenu(switchButton) {
     this._$switchButton = switchButton;
-    // находим меню внутри кнопки
+    // find the menu inside the button
     this._$menu = switchButton.find('div[data-role="menu"]');
 }
 
-// добавляем методы в прототип
+// add the methods to the prototype
 ContextMenu.prototype = {
-    // при нажатии на кнопку либо прячем, либо показываем меню
+    // on click of the button we either hide or show the menu
     _onSwitchButtonClick: function () {
 
-        if (this._$menu.hasClass('hidden')) { // если она спрятана, то надо показать
+        if (this._$menu.hasClass('hidden')) { // if the menu is hidden, we show it
             this._showMenu();
         } else {
-            this.__hideMenu();
+            this._hideMenu();
         }
 
 
@@ -22,11 +22,11 @@ ContextMenu.prototype = {
     _showMenu: function () {
         
         this._$menu.removeClass('hidden');
-        // для проверки положения кнопки относительно верха окна создаем две переменные
-        var buttonOffset = $('button[data-role="show-menu"]')[0].getBoundingClientRect().top;
+        // to check wether or not the button is too close to the top of the window we create 2 var's
+        var buttonOffset = this._$switchButton[0].getBoundingClientRect().top;
         var menuHeight = this._$menu.height() + 30;
 
-        // если кнопка слишком высоко, мы покажем меню снизу кнопки
+        // if the button is too far up the window, we show the menu on its bottom side
         if (buttonOffset < menuHeight) {
             this._$menu.addClass('go-down');
             this._$menu.css('bottom', -menuHeight);
@@ -34,29 +34,26 @@ ContextMenu.prototype = {
 
     },
 
+    // we hide the menu
     _hideMenu: function () {
         this._$menu.addClass('hidden');
     },
 
-    // инициализация, добавляем подписчика на щелчок по нашей кнопке
+    // initialize, add a listener to the button
     init: function () {
         this._$switchButton.on('click', this._onSwitchButtonClick.bind(this));
     }
 }
 
 
-// хватаемся за кнопку
+// grab the button
 var switchBTN = $('button[data-role="show-menu"]');
 
-// создаем инстанс виджета
+// create a widget instance
 var contextMenu = new ContextMenu(switchBTN);
-// инициализируем виджет
+// initialize the widget
 contextMenu.init()
 
 
 
 
-
-
-
-// [0].getBoundingClientRect().top
