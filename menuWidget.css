@@ -1,0 +1,43 @@
+
+
+.show-menu-button {
+    position: relative;
+    margin-left: 1000px;
+    margin-top: 100px;
+    /* appearance: none; */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    border: 0;
+    background: transparent;
+}
+
+.show-menu-button .menu {
+    /* position: absolute;
+    background-color: rgb(252, 239, 239); */
+    /* bottom:15;
+    right:20; */
+    position: absolute;
+    background-color: #fff;
+    padding: 0 10px 10px 10px;
+    z-index: 998;
+    bottom: 30px;
+    right: 30px;
+    width: 140px;
+    text-align: left;
+    border: 1px solid black;
+}
+
+
+.show-menu-button .menu.go-down {
+    top: 30px;
+}
+
+.show-menu-button .menu a {
+    color: black;
+}
+
+.show-menu-button .menu .hidden {
+    display: none;
+}
+
