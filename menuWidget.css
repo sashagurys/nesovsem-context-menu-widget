@@ -2,9 +2,6 @@
 
 .show-menu-button {
     position: relative;
-    margin-left: 1000px;
-    margin-top: 30px;
-    /* appearance: none; */
     -webkit-appearance: none;
     -moz-appearance: none;
     outline: none;
@@ -13,10 +10,6 @@
 }
 
 .show-menu-button .menu {
-    /* position: absolute;
-    background-color: rgb(252, 239, 239); */
-    /* bottom:15;
-    right:20; */
     position: absolute;
     background-color: #fff;
     padding: 0 10px 10px 10px;
