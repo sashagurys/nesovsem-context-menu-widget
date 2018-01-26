@@ -1,6 +1,8 @@
 
 
 .show-menu-button {
+    margin-top: 100px;
+    margin-left: 1000px;
     position: relative;
     -webkit-appearance: none;
     -moz-appearance: none;

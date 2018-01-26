@@ -22,9 +22,11 @@ ContextMenu.prototype = {
     _showMenu: function () {
         
         this._$menu.removeClass('hidden');
-        // to check wether or not the button is too close to the top of the window we create 2 var's
+        // to check whether or not the button is too close to the top of the window we create 3 var's
+        var menuButtonDistanceStr = this._$menu.css("bottom");
         var buttonOffset = this._$switchButton[0].getBoundingClientRect().top;
-        var menuHeight = this._$menu.height() + 30;
+        var menuButtonDistance = parseInt(menuButtonDistanceStr, 10);
+        var menuHeight = this._$menu.height() + menuButtonDistance;
 
         // if the button is too far up the window, we show the menu on its bottom side
         if (buttonOffset < menuHeight) {
